@@ -1,14 +1,17 @@
 package com.bigbang.playtunes.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.bigbang.playtunes.R;
@@ -17,6 +20,7 @@ import com.bigbang.playtunes.model.UploadSong;
 import com.bigbang.playtunes.util.DebugLogger;
 import com.bigbang.playtunes.viewmodel.SongViewModel;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -35,6 +39,8 @@ public class ShowSongsActivity extends AppCompatActivity implements SongsAdapter
     private SongViewModel viewModel;
     private MediaPlayer mediaPlayer;
 
+    @BindView(R.id.navigation)
+    BottomNavigationView navigationView;
 
     @BindView(R.id.song_recyclerview)
     RecyclerView songRecyclerView;
@@ -44,6 +50,27 @@ public class ShowSongsActivity extends AppCompatActivity implements SongsAdapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_songs);
         ButterKnife.bind(this);
+
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.pick_song_item:
+                        Intent i = new Intent(ShowSongsActivity.this, UploadActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.playlist_item:
+
+                        break;
+                    case R.id.logout_item:
+                        //logout();
+
+                        //return true;
+                        break;
+                }
+                return false;
+            }
+            });
 
         viewModel = ViewModelProviders.of(this).get(SongViewModel.class);
 //        songRecyclerView.setLayoutManager(new LinearLayoutManager(this));

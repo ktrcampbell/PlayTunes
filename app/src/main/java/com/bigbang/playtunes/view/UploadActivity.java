@@ -1,4 +1,4 @@
-package com.bigbang.playtunes;
+package com.bigbang.playtunes.view;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,13 +23,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bigbang.playtunes.R;
 import com.bigbang.playtunes.model.UploadSong;
 import com.bigbang.playtunes.util.DebugLogger;
-import com.bigbang.playtunes.view.HomeActivity;
-import com.bigbang.playtunes.view.LoginFragment;
-import com.bigbang.playtunes.view.ShowSongsActivity;
 import com.bigbang.playtunes.viewmodel.SongViewModel;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -72,6 +71,9 @@ public class UploadActivity extends AppCompatActivity {
     @BindView(R.id.upload_progressbar)
     ProgressBar uploadProgressBar;
 
+    @BindView(R.id.navigation)
+    BottomNavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,34 +81,32 @@ public class UploadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_upload);
         ButterKnife.bind(this);
 
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.pick_song_item:
+                        break;
+                    case R.id.playlist_item:
+                        Intent i = new Intent(UploadActivity.this, ShowSongsActivity.class);
+                        startActivity(i);
+                        return true;
+                    case R.id.logout_item:
+                        //logout();
+
+                        //return true;
+                        break;
+                }
+                return false;
+            }
+        });
+
         firebaseReferenceSongs = FirebaseDatabase.getInstance().getReference().child("songs");
         mStorageRef = FirebaseStorage.getInstance().getReference().child("songs");
 
         songViewModel = ViewModelProviders.of(this).get(SongViewModel.class);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.item_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.playlist_item:
-                Intent i = new Intent(UploadActivity.this, ShowSongsActivity.class);
-                startActivity(i);
-                return true;
-            case R.id.logout_item:
-                //logout();
-                Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
     private boolean validatePermissions() {
         Dexter.withContext(UploadActivity.this)

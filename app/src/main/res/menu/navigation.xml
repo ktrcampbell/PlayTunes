@@ -4,14 +4,14 @@
     <item
         android:id="@+id/pick_song_item"
         android:title="@string/upload_item"
-        app:showAsAction="never" />
+         android:icon="@drawable/ic_file_upload"/>
     <item
         android:id="@+id/playlist_item"
         android:title="@string/music_playlist_menu"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_playlist_play" />
     <item
         android:id="@+id/logout_item"
         android:title="@string/logout_menu"
-        app:showAsAction="never"/>
+        android:icon="@drawable/ic_system_log_out"/>
 
 </menu>

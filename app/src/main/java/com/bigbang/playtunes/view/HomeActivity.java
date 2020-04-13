@@ -12,8 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bigbang.playtunes.R;
-import com.bigbang.playtunes.UploadActivity;
-import com.bigbang.playtunes.util.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
