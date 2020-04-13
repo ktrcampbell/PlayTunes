@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "863710633708",
+    "firebase_url": "https://playtunes-1e0c9.firebaseio.com",
+    "project_id": "playtunes-1e0c9",
+    "storage_bucket": "playtunes-1e0c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863710633708:android:340334829aae0c23d74fc9",
+        "android_client_info": {
+          "package_name": "com.bigbang.playtunes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "863710633708-caeaihh77dd780ojbbofoki4jgbqaorg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtThccjl-YbPhvuof_U3J2Kd6-Eba5P_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "863710633708-caeaihh77dd780ojbbofoki4jgbqaorg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

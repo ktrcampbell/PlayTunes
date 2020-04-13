@@ -1,0 +1,1 @@
+Simple music player that lets you create a playlist of songs and play it on your device.  The songs you selected can be uploaded to Firebase Storage for hours of playtime.
