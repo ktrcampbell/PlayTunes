@@ -2,9 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_animation"
     tools:context=".view.UploadActivity">
+
     <EditText
         android:id="@+id/song_title_edittext"
         android:layout_width="match_parent"
@@ -23,7 +26,7 @@
         android:layout_height="@dimen/dimen_4dp"
         android:layout_margin="@dimen/dimen_16dp"
         android:background="@color/colorBlack"
-        app:layout_constraintTop_toBottomOf="@id/song_title_edittext"/>
+        app:layout_constraintTop_toBottomOf="@id/song_title_edittext" />
 
 
     <Button
@@ -32,8 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_16dp"
         android:layout_weight="1"
-        android:text="@string/select_button"
         android:onClick="openAudioFile"
+        android:text="@string/select_button"
         app:layout_constraintEnd_toStartOf="@+id/upload_textview"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,9 +73,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_16dp"
+        android:onClick="uploadAudioToFirebase"
         android:text="@string/upload_button"
         android:textStyle="bold"
-        android:onClick="uploadAudioToFirebase"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upload_progressbar" />
@@ -83,10 +86,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_16dp"
         android:background="?android:attr/windowBackground"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/navigation"/>
+        app:menu="@menu/navigation" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

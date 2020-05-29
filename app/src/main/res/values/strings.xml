@@ -24,4 +24,25 @@
     <string name="app_title">Play Tunes</string>
     <string name="copyright_text">© 2020 KC</string>
     <string name="dashboard_screen">Dashboard Screen</string>
+    <string name="login_header">Hello, Welcome back!</string>
+    <string name="signin_slogan">Sign in to continue</string>
+    <string name="username_textfield">Username</string>
+    <string name="password_textfield">Password</string>
+    <string name="forget_password_button">Forgot Password?</string>
+    <string name="signin_button">GO</string>
+    <string name="new_user_sign_up_button">New User? Sign Up</string>
+    <string name="reg_header">Welcome, </string>
+    <string name="reg_slogan">Sign up to start your new journey!</string>
+    <string name="reg_name_hint">Full Name</string>
+    <string name="reg_username_hint">Email</string>
+    <string name="reg_password_hint">Password</string>
+    <string name="register_button_text">Register</string>
+    <string name="reg_existing_account_text">Already have an Account? Login</string>
+    <string name="reg_check_verify_email">Please check verification email.</string>
+    <string name="reset_password">Reset Password?</string>
+    <string name="reset_password_message">Enter your email to receive reset link.</string>
+    <string name="reset_link_message">A reset link has been sent to your email.</string>
+    <string name="reset_link_error">Error! Reset link not sent</string>
+    <string name="verify_email_error">Email Not Verified!</string>
+    <string name="verify_button">Verify Now</string>
 </resources>

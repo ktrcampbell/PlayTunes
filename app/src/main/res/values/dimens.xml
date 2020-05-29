@@ -11,4 +11,8 @@
     <dimen name="dimen_350dp">350dp</dimen>
     <dimen name="dimen_70sp">70sp</dimen>
     <dimen name="dimen_24sp">24sp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="dimen_40sp">40sp</dimen>
+    <dimen name="dimen_20dp">20dp</dimen>
+    <dimen name="dimen_200dp">200dp</dimen>
 </resources>

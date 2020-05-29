@@ -3,12 +3,14 @@ package com.bigbang.playtunes.view;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -29,6 +32,8 @@ import com.bigbang.playtunes.util.DebugLogger;
 import com.bigbang.playtunes.viewmodel.SongViewModel;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -54,8 +59,8 @@ import static com.bigbang.playtunes.util.Constants.REQUEST_CODE;
 
 public class UploadActivity extends AppCompatActivity {
 
+    private AnimationDrawable animDrawable;
     private boolean checkPermission = false;
-    LoginFragment loginFragment = new LoginFragment();
     private SongViewModel songViewModel;
     private Uri audioUri;
     private StorageReference mStorageRef;
@@ -74,6 +79,9 @@ public class UploadActivity extends AppCompatActivity {
     @BindView(R.id.navigation)
     BottomNavigationView navigationView;
 
+    @BindView(R.id.constraintLayout)
+    ConstraintLayout rootLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +89,12 @@ public class UploadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_upload);
         ButterKnife.bind(this);
 
+        animDrawable = (AnimationDrawable) rootLayout.getBackground();
+        animDrawable.setEnterFadeDuration(10);
+        animDrawable.setExitFadeDuration(5000);
+        animDrawable.start();
+
+        navigationView.setSelectedItemId(R.id.pick_song_item);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -90,12 +104,13 @@ public class UploadActivity extends AppCompatActivity {
                     case R.id.playlist_item:
                         Intent i = new Intent(UploadActivity.this, ShowSongsActivity.class);
                         startActivity(i);
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.logout_item:
-                        //logout();
-
-                        //return true;
-                        break;
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        finish();
+                        return true;
                 }
                 return false;
             }
@@ -105,6 +120,7 @@ public class UploadActivity extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference().child("songs");
 
         songViewModel = ViewModelProviders.of(this).get(SongViewModel.class);
+
     }
 
 

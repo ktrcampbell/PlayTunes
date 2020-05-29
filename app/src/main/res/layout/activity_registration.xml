@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.RegistrationActivity"
+    android:background="@drawable/gradient_animation"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/reg_imagview"
+        android:layout_width="@dimen/dimen_100dp"
+        android:layout_height="@dimen/dimen_100dp"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:src="@drawable/ic_music_icon"
+        android:transitionName="logo_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/reg_header_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:fontFamily="@font/cantata_one"
+        android:textColor="@color/colorBlack"
+        android:text="@string/reg_header"
+        android:textSize="@dimen/dimen_40sp"
+        android:transitionName="logo_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_imagview" />
+
+    <TextView
+        android:id="@+id/reg_slogan_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:text="@string/reg_slogan"
+        android:textSize="@dimen/dimen_18sp"
+        android:fontFamily="@font/abeezee"
+        android:transitionName="slogan_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_header_textview" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_20dp"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reg_slogan_textview">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/reg_username_inputtextlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:transitionName="username_trans"
+            android:layout_margin="@dimen/dimen_4dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reg_username_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/reg_username_hint"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/reg_password_textinputlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:transitionName="password_trans"
+            android:layout_margin="@dimen/dimen_4dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reg_password_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/reg_password_hint"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/reg_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:text="@string/register_button_text"
+        android:transitionName="signin_button_trans"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:id="@+id/reg_tologin_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:text="@string/reg_existing_account_text"
+        android:textColor="@color/colorBlack"
+        android:transitionName="login_button_trans"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

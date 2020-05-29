@@ -55,7 +55,7 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.SongViewHold
         Glide.with(holder.itemView.getContext())
                 .load(R.drawable.ic_stop)
                 .into(holder.stopImageView);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.playImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(songClickListener != null) {

@@ -7,4 +7,9 @@
     <color name="colorLightGreen">#4BDF51</color>
     <color name="colorDarkPurple">#321B5B</color>
     <color name="colorIceBlue">#C6E0EC</color>
+    <color name="colorBlueGrey">#3D3F4C</color>
+    <color name="colorGradStart">#2196F3</color>
+    <color name="colorGradCenter">#7EBBEC</color>
+    <color name="colorGradEnd">#E1EBF3</color>
+    <color name="colorRed">#EC2F2F</color>
 </resources>

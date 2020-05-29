@@ -83,9 +83,11 @@ public class SongViewModel extends AndroidViewModel {
                             if (FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
                                 loginMLD.setValue(true);
                             } else
-                                Toast.makeText(getApplication(), R.string.verify_user_email + user.getUserName(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplication(), R.string.verify_user_email
+                                        + user.getUserName(), Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(getApplication(), R.string.login_failed + task.getException().getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplication(), R.string.login_failed
+                                    + task.getException().getLocalizedMessage(), Toast.LENGTH_LONG).show();
                             loginMLD.setValue(false);
                         }
                     }

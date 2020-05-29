@@ -4,7 +4,7 @@ import com.google.firebase.database.Exclude;
 
 public class UploadSong {
 
-    public String songTitle, songDuration, songLink, mKey;
+    public String songTitle, songDuration, songLink, mKey, userName;
 
     public UploadSong() {
     }
@@ -38,6 +38,14 @@ public class UploadSong {
 
     public void setSongLink(String songLink) {
         this.songLink = songLink;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     @Exclude
